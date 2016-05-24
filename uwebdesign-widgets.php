@@ -3,11 +3,11 @@
  * Plugin Name: uWebDesign Widgets
  * Plugin URI: https://github.com/websanya/uwebdesign-widgets
  * Description: Плагин с виджетами для комьюнити сайта uWebDesign.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Alexander Goncharov
  * Author URI: https://websanya.ru
- * Github Plugin URI: https://github.com/websanya/uwebdesign-widgets
- * Github Branch: master
+ * GitHub Plugin URI: https://github.com/websanya/uwebdesign-widgets
+ * GitHub Branch: master
  */
 
 /**

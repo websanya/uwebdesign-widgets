@@ -12,6 +12,9 @@
 
 ## История изменений
 
+### 1.1.0
+* Added 'Themes for Podcast' widget.
+
 ### 1.0.1
 * Added readme.md.
 

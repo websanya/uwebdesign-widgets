@@ -3,7 +3,7 @@
  * Plugin Name: uWebDesign Widgets
  * Plugin URI: https://github.com/websanya/uwebdesign-widgets
  * Description: Плагин с виджетами для комьюнити сайта uWebDesign.
- * Version: 1.1.0
+ * Version: 1.1.1
  * Author: Alexander Goncharov
  * Author URI: https://websanya.ru
  * GitHub Plugin URI: https://github.com/websanya/uwebdesign-widgets
@@ -133,6 +133,9 @@ class uwd_widget_themes extends WP_Widget {
 				<?php the_post_thumbnail( 'medium' ); ?>
 			</a>
 			<?php the_content(); ?>
+			<p>
+				<a href="<?php the_permalink(); ?>/#respond">Предложить тему &rarr;</a>
+			</p>
 			<?php
 		endwhile;
 

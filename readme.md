@@ -12,6 +12,9 @@
 
 ## История изменений
 
+### 1.1.1
+* Added the link, otherwise it's not cool.
+
 ### 1.1.0
 * Added 'Themes for Podcast' widget.
 

@@ -12,6 +12,9 @@
 
 ## История изменений
 
+### 1.1.2
+* Added screen-reader-text title default.
+
 ### 1.1.1
 * Added the link, otherwise it's not cool.
 

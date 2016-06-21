@@ -3,7 +3,7 @@
  * Plugin Name: uWebDesign Widgets
  * Plugin URI: https://github.com/websanya/uwebdesign-widgets
  * Description: Плагин с виджетами для комьюнити сайта uWebDesign.
- * Version: 1.1.1
+ * Version: 1.1.2
  * Author: Alexander Goncharov
  * Author URI: https://websanya.ru
  * GitHub Plugin URI: https://github.com/websanya/uwebdesign-widgets
@@ -32,6 +32,9 @@ class uwd_widget_banner extends WP_Widget {
 		echo $args['before_widget'];
 		if ( ! empty( $title ) ) {
 			echo $args['before_title'] . $title . $args['after_title'];
+		} else {
+			$args['before_title'] = '<h5 class="widget-title widgettitle screen-reader-text">';
+			$no_title = true;
 		}
 
 		$query_args = array(
@@ -43,6 +46,9 @@ class uwd_widget_banner extends WP_Widget {
 		$query = new WP_Query( $query_args );
 
 		while ( $query->have_posts() ) : $query->the_post();
+			if ( ! empty( $no_title ) ) {
+				echo $args['before_title'] . get_the_title() . $args['after_title'];
+			}
 			?>
 			<a href="<?php the_field( 'banner_url' ); ?>" rel="nofollow">
 				<img width="770" height="770" src="<?php the_field( 'banner_img_sidebar' ); ?>"
@@ -134,7 +140,7 @@ class uwd_widget_themes extends WP_Widget {
 			</a>
 			<?php the_content(); ?>
 			<p>
-				<a href="<?php the_permalink(); ?>/#respond">Предложить тему &rarr;</a>
+				<a href="<?php the_permalink(); ?>#respond">Предложить тему &rarr;</a>
 			</p>
 			<?php
 		endwhile;

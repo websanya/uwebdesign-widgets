@@ -3,7 +3,7 @@
  * Plugin Name: uWebDesign Widgets
  * Plugin URI: https://github.com/websanya/uwebdesign-widgets
  * Description: Плагин с виджетами для комьюнити сайта uWebDesign.
- * Version: 1.1.2
+ * Version: 1.1.3
  * Author: Alexander Goncharov
  * Author URI: https://websanya.ru
  * GitHub Plugin URI: https://github.com/websanya/uwebdesign-widgets
@@ -34,7 +34,7 @@ class uwd_widget_banner extends WP_Widget {
 			echo $args['before_title'] . $title . $args['after_title'];
 		} else {
 			$args['before_title'] = '<h5 class="widget-title widgettitle screen-reader-text">';
-			$no_title = true;
+			$no_title             = true;
 		}
 
 		$query_args = array(
@@ -113,10 +113,15 @@ class uwd_widget_themes extends WP_Widget {
 
 		//* Before and after widget arguments are defined by themes.
 		echo $args['before_widget'];
+		$comments = '<small class="uwd-widget-meta">(' . russian_comments( get_comments_number(), array(
+				'комментарий',
+				'комментария',
+				'комментариев',
+			) ) . ')</small>';
 		if ( ! empty( $title ) ) {
-			echo $args['before_title'] . $title . $args['after_title'];
+			echo $args['before_title'] . $title . $comments . $args['after_title'];
 		} else {
-			echo $args['before_title'] . 'Темы к ближайшему подкасту' . $args['after_title'];
+			echo $args['before_title'] . 'Темы к ближайшему подкасту' . ' ' . $comments . ' ' . $args['after_title'];
 		}
 
 		$query_args = array(

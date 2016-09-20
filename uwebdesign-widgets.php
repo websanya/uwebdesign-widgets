@@ -3,7 +3,7 @@
  * Plugin Name: uWebDesign Widgets
  * Plugin URI: https://github.com/websanya/uwebdesign-widgets
  * Description: Плагин с виджетами для комьюнити сайта uWebDesign.
- * Version: 1.1.3
+ * Version: 1.1.4
  * Author: Alexander Goncharov
  * Author URI: https://websanya.ru
  * GitHub Plugin URI: https://github.com/websanya/uwebdesign-widgets
@@ -111,19 +111,6 @@ class uwd_widget_themes extends WP_Widget {
 
 		$title = apply_filters( 'widget_title', $instance['title'] );
 
-		//* Before and after widget arguments are defined by themes.
-		echo $args['before_widget'];
-		$comments = '<small class="uwd-widget-meta">(' . russian_comments( get_comments_number(), array(
-				'комментарий',
-				'комментария',
-				'комментариев',
-			) ) . ')</small>';
-		if ( ! empty( $title ) ) {
-			echo $args['before_title'] . $title . $comments . $args['after_title'];
-		} else {
-			echo $args['before_title'] . 'Темы к ближайшему подкасту' . ' ' . $comments . ' ' . $args['after_title'];
-		}
-
 		$query_args = array(
 			'post_type'      => 'post',
 			'posts_per_page' => 1,
@@ -137,8 +124,21 @@ class uwd_widget_themes extends WP_Widget {
 		);
 
 		$query = new WP_Query( $query_args );
+		$query->the_post();
 
-		while ( $query->have_posts() ) : $query->the_post();
+		//* Before and after widget arguments are defined by themes.
+		echo $args['before_widget'];
+		$comments = ' <small class="uwd-widget-meta">(' . russian_comments( get_comments_number( get_the_ID() ), array(
+				'комментарий',
+				'комментария',
+				'комментариев',
+			) ) . ')</small>';
+		if ( ! empty( $title ) ) {
+			echo $args['before_title'] . $title . $comments . $args['after_title'];
+		} else {
+			echo $args['before_title'] . 'Темы к ближайшему подкасту' . ' ' . $comments . ' ' . $args['after_title'];
+		}
+
 			?>
 			<a href="<?php the_permalink(); ?>">
 				<?php the_post_thumbnail( 'medium' ); ?>
@@ -148,7 +148,6 @@ class uwd_widget_themes extends WP_Widget {
 				<a href="<?php the_permalink(); ?>#respond">Предложить тему &rarr;</a>
 			</p>
 			<?php
-		endwhile;
 
 		//* Reset Post Data.
 		wp_reset_postdata();

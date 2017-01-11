@@ -3,7 +3,7 @@
  * Plugin Name: uWebDesign Widgets
  * Plugin URI: https://github.com/websanya/uwebdesign-widgets
  * Description: Плагин с виджетами для комьюнити сайта uWebDesign.
- * Version: 1.1.5
+ * Version: 1.1.5.1
  * Author: Alexander Goncharov
  * Author URI: https://websanya.ru
  * GitHub Plugin URI: https://github.com/websanya/uwebdesign-widgets
@@ -228,7 +228,7 @@ class uwd_widget_userflow extends WP_Widget {
 			echo "<p>Привет, $current_user_displayname!</p>";
 			echo "<ul><li><a href='$profile_url'>Мой профиль</a></li><li><a href='$logout_url'>Выйти с сайта</a></li></ul>";
 		} else {
-			echo "<p>uWebDesign настоятельно рекоммендует!</p>";
+			echo "<p>uWebDesign настоятельно рекомендует!</p>";
 			echo "<ul><li><a href='$login_url'>Войти на сайт</a></li><li><a href='$reg_url'>Зарегистрироваться</a></li></ul>";
 		}
 

@@ -3,7 +3,7 @@
  * Plugin Name: uWebDesign Widgets
  * Plugin URI: https://github.com/websanya/uwebdesign-widgets
  * Description: Плагин с виджетами для комьюнити сайта uWebDesign.
- * Version: 1.1.5.1
+ * Version: 1.1.6
  * Author: Alexander Goncharov
  * Author URI: https://websanya.ru
  * GitHub Plugin URI: https://github.com/websanya/uwebdesign-widgets
@@ -52,7 +52,7 @@ class uwd_widget_banner extends WP_Widget {
 				echo $args['before_title'] . get_the_title() . $args['after_title'];
 			}
 			?>
-			<a href="<?php the_field( 'banner_url' ); ?>" rel="nofollow">
+			<a href="<?php the_field( 'banner_url' ); ?>?banner=sidebar" rel="nofollow">
 				<img width="770" height="770" src="<?php the_field( 'banner_img_sidebar' ); ?>"
 				     alt="<?php the_title(); ?>">
 			</a>
